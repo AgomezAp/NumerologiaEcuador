@@ -265,7 +265,7 @@ export class ResultComponent implements OnInit {
     localStorage.setItem('paymentData', encryptedData);
 
     this.http
-    this.http.post<{ id: string, links: { rel: string, href: string }[] }>('https://api.numerologia-ecuador.com/create-order', {})
+    this.http.post<{ id: string, links: { rel: string, href: string }[] }>('https://api.numerologiachile.com/create-order', {})
       .subscribe((response) => {
         const approvalUrl = response.links.find(link => link.rel === "approve")?.href;
         if (approvalUrl) {
@@ -278,7 +278,7 @@ export class ResultComponent implements OnInit {
       });
   }
   capturePayment(token: string): void {
-    this.http.get(`https://api.numerologia-ecuador.com/capture-order?token=${token}`)
+    this.http.get(`https://api.numerologiachile.com/capture-order?token=${token}`)
       .subscribe((response) => {
         console.log('Payment captured successfully:', response);
         this.router.navigate(['/payment-success']);
@@ -286,10 +286,6 @@ export class ResultComponent implements OnInit {
         console.error('Error capturing payment:', error);
         this.router.navigate(['/payment-failure']);
       });
-  }
-  onCardMouseOver(specificDescription: string): void {
-    this.hoveredDescription = specificDescription;
-    console.log('Descripción específica:', specificDescription);
   }
 
   // Manejar el evento de quitar el cursor de una carta
