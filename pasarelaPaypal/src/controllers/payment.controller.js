@@ -16,7 +16,7 @@ export const createOrder = async (req, res) => {
         {
           amount: {
             currency_code: "USD",
-            value: "15.00",
+            value: "5.00",
           },
         },
       ],
@@ -26,8 +26,8 @@ export const createOrder = async (req, res) => {
         shipping_preference: "NO_SHIPPING",
         user_action: "PAY_NOW",
         return_url: `${HOST}/capture-order`,
-        failure_url: `${HOST}/welcome`,
-        cancel_url: `${HOST}/descripcion-cartas`,
+        failure_url: `https://numerologia-ecuador.com/welcome`,
+        cancel_url: `https://numerologia-ecuador.com/descripcion-cartas`,
       },
     };
 
